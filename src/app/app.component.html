@@ -1,2 +1,42 @@
-<h1>Main page</h1>
-<router-outlet></router-outlet>
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push">
+        <!-- menu header -->
+        <mat-toolbar color="primary">
+            <span>Menu</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        <!-- menu options -->
+        <mat-nav-list>
+            <a routerLink="./Softwareentwicklung/Products/List" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>home</mat-icon>
+                <span>Product List</span>
+            </a>
+        </mat-nav-list>
+        <mat-nav-list>
+            <a routerLink="./Softwareentwicklung/Products/Add" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>fact_check</mat-icon>
+                <span>Add Product</span>
+            </a>
+        </mat-nav-list>
+
+        
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <!-- show menu -->
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <!-- options -->
+        <span>Welcome to Softwareentwicklung</span>
+    </mat-toolbar>
+
+    <!-- display container -->
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
