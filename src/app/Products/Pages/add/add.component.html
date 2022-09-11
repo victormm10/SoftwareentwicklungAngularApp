@@ -1,1 +1,79 @@
-<p>add works!</p>
+
+<ul class="nav">
+  <li class="nav-item" [routerLink]="[ '/Softwareentwicklung/Products/List']">
+    <h2><a class="nav-link active" aria-current="page">Product List</a></h2>
+  </li>
+  <li class="nav-item">
+    <h2><a class="nav-link disabled" aria-current="page">/ {{ productForm.get('Id')?.value > 0 ? 'Edit' : 'Add' }} Product</a></h2>
+  </li>
+</ul>
+
+<hr>
+
+<form autocomplete="off" [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <div class="row">
+        <div class="col-12 col-sm-5 col-md-3">
+            <img [src]="productForm.value | images">
+        </div>
+        <div class="col col-xl-6">
+
+            <!-- name -->
+            <div class="input-group has-validation mb-3">
+                <div class="form-floating is-invalid">
+                  <input type="text" class="form-control is-invalid" error-msg [valid]="formHasErrors('Name')" placeholder="Type Product Name" formControlName="Name" id="floating-name">
+                  <label for="floating-name">Product Name</label>
+                </div>
+                <div class="invalid-feedback" error-msg [message]="formHasErrors('Name')" >
+                </div>
+            </div>
+
+            <!-- Price -->            
+            <div class="input-group has-validation mb-3">
+                <span class="input-group-text">USD$</span>
+                <div class="form-floating is-invalid">
+                  <input type="number" step="any" class="form-control is-invalid" error-msg [valid]="formHasErrors('Price')" id="floating-price" placeholder="Type Product Price" formControlName="Price">
+                  <label for="floating-price">Product Price</label>
+                </div>
+                <div class="invalid-feedback" error-msg [message]="formHasErrors('Price')">
+                </div>
+            </div>
+    
+            <!-- Stock --> 
+            <div class="input-group has-validation mb-3">
+                <div class="form-floating is-invalid">
+                  <input type="number" step="any" class="form-control is-invalid" error-msg [valid]="formHasErrors('Stock')" id="floating-stock" placeholder="Type Product Stock" formControlName="Stock">
+                  <label for="floating-stock">Product Stock</label>
+                </div>
+                <div class="invalid-feedback" error-msg [message]="formHasErrors('Stock')">
+                </div>
+            </div>
+    
+            <!-- description -->
+            <div class="input-group has-validation mb-3">
+                <div class="form-floating is-invalid">
+                  <textarea class="form-control is-invalid" error-msg [valid]="formHasErrors('Description')" placeholder="Type Product Description" id="floating-description" style="height: 100px" formControlName="Description"></textarea>
+                  <label for="floating-description">Product Description</label>
+                </div>
+                <div class="invalid-feedback" error-msg [message]="formHasErrors('Description')">
+                </div>
+            </div>
+    
+            <!-- imageUrl -->
+            <div class="input-group has-validation mb-3">
+                <div class="form-floating is-invalid">
+                  <input type="text" class="form-control is-invalid" error-msg [valid]="formHasErrors('ImageUrl')" placeholder="Paste Product Image Link" formControlName="ImageUrl" id="floating-imageUrl">
+                  <label for="floating-imageUrl">Product Image Link</label>
+                </div>
+                <div class="invalid-feedback" error-msg [message]="formHasErrors('ImageUrl')">
+                </div>
+            </div>
+    
+            <div class="d-grid gap-2">
+                <button class="btn btn-info" type="submit">{{ productForm.get('Id')?.value > 0 ? 'Update' : 'Save' }} Product</button>
+                <button class="btn btn-danger" type="button" *ngIf="productForm.get('Id')?.value > 0">Delete Product</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
