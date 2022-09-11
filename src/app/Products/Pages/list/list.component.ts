@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../Services/product.service';
 import { ProductItem } from '../../Interfaces/ProductItem.interface';
+import { ViewComponent } from '../../Components/view/view.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -20,7 +22,7 @@ export class ListComponent implements OnInit {
 
   productList: ProductItem[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getProductList();
@@ -32,6 +34,13 @@ export class ListComponent implements OnInit {
         this.productList = list;
       }
     );
+  }
+
+  openProductDetails( item: ProductItem ){
+    const dialog = this.dialog.open( ViewComponent, {
+      width: '800px',
+      data: item
+    } );
   }
 
 }
