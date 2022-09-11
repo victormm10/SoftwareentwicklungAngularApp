@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { GridColorDirective } from '../Directives/grid-color.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorMsgDirective } from '../Directives/error-msg.directive';
+import { DeleteComponent } from './Components/Confirm/delete/delete.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ErrorMsgDirective } from '../Directives/error-msg.directive';
     AddComponent,
     ImagesPipe,
     GridColorDirective,
-    ErrorMsgDirective
+    ErrorMsgDirective,
+    DeleteComponent
   ],
   imports: [
     CommonModule,

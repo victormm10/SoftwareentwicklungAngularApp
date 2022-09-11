@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductItem } from '../Interfaces/ProductItem.interface';
@@ -32,5 +32,9 @@ export class ProductService {
   getProductById( id: number ): Observable<ProductItem>
   {
     return this.http.get<ProductItem>(`${this._urlBaseApi}/Products/GetProductById/${ id }`);
+  }
+
+  deleteProductById( id: number ): Observable<HttpResponse<any>>{
+    return this.http.delete<HttpResponse<any>>(`${this._urlBaseApi}/Products/DeleteProductById/${ id }`);
   }
 }

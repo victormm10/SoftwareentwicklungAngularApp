@@ -1,0 +1,13 @@
+<h3>Delete Product</h3>
+<hr>
+<p>
+    You are trying to delete the product : {{ data.Name }}.
+    <br>
+    Do you want to continue?
+</p>
+
+<div>
+    <button mat-button (click)="delete()" color="warn">Yes, delete it</button>
+    <button mat-button (click)="cancell()">Cancell</button>
+</div>
+

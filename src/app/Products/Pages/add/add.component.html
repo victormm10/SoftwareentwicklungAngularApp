@@ -17,6 +17,12 @@
         </div>
         <div class="col col-xl-6">
 
+
+          <div class="input-group has-validation mb-3">
+            <div class="invalid-feedback" error-msg [message]="formHasErrors('Id')" >
+            </div>
+        </div>
+
             <!-- name -->
             <div class="input-group has-validation mb-3">
                 <div class="form-floating is-invalid">
@@ -70,7 +76,7 @@
     
             <div class="d-grid gap-2">
                 <button class="btn btn-info" type="submit">{{ productForm.get('Id')?.value > 0 ? 'Update' : 'Save' }} Product</button>
-                <button class="btn btn-danger" type="button" *ngIf="productForm.get('Id')?.value > 0">Delete Product</button>
+                <button class="btn btn-danger" type="button" *ngIf="productForm.get('Id')?.value > 0" (click)="deleteProduct()">Delete Product</button>
             </div>
         </div>
     </div>

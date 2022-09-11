@@ -10,6 +10,15 @@ export class ProductValidator extends AsyncValidator<ProductItem> {
     constructor( private productService: ProductService ) {
         super();
   
+        //Id
+        this.ruleFor('Id')
+            .notNull()
+            .withMessage('Product Id is missing');
+        this.ruleFor('Id')
+            .greaterThanOrEqualTo(0)
+            .withMessage('Product Id should not be negative');
+
+
         //name
         this.ruleFor('Name')
             .notNull()
