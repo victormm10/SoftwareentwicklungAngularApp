@@ -25,7 +25,7 @@
         
     </mat-sidenav>
 
-    <mat-toolbar>
+    <mat-toolbar color="primary">
         <!-- show menu -->
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon>menu</mat-icon>
@@ -36,7 +36,7 @@
     </mat-toolbar>
 
     <!-- display container -->
-    <div class="container">
+    <div class="container" color="primary">
         <router-outlet></router-outlet>
     </div>
 </mat-sidenav-container>
