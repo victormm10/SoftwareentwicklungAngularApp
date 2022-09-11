@@ -9,7 +9,6 @@
                 <th scope="col">#</th>
                 <th scope="col">Picture</th>
                 <th scope="col">Name</th>
-                <th scope="col">Description</th>
                 <th scope="col">Price</th>
                 <th scope="col">Stock</th>
                 <th scope="col-1"></th>
@@ -21,11 +20,10 @@
                 <th scope="row"> {{ i + 1 }} </th>
                 <td> <img [src]="prod | images"> </td>
                 <td> {{ prod.Name }} </td>
-                <td> {{ prod.Description }} </td>
                 <td> {{ prod.Price | currency }} </td>
                 <td> {{ prod.Stock }} </td>
                 <td> 
-                  <button mat-mini-fab>
+                  <button mat-mini-fab (click)="openProductDetails( prod )">
                     <mat-icon>visibility</mat-icon>
                   </button>
                 </td>

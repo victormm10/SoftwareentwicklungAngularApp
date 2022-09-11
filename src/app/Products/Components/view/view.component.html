@@ -1,0 +1,52 @@
+<div class="container">
+    <h3>Product Details</h3>
+    <hr>
+
+    <div class="row">
+        <div class="col-12 col-sm-5 mb-4">
+            <img [src]="data | images">
+        </div>
+        <div class="col">
+            <div class="row mb-3">
+                <h6><span class="badge bg-secondary">Product Name</span></h6>
+                <div class="col">
+                    {{ data.Name }}
+                </div>
+            </div> 
+            <div class="row mb-3">
+                <div class="col-12 col-md-6">
+                    <h6><span class="badge bg-secondary">Product Stock</span></h6>
+                    <div class="col">
+                        {{ data.Stock }}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h6><span class="badge bg-secondary">Price</span></h6>
+                    <div class="col">
+                        USD{{ data.Price | currency }}
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <h6><span class="badge bg-secondary">Product Description</span></h6>
+                <div class="col">
+                    {{ data.Description }}
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-6 mt-3">
+            <div class="d-grid gap-2">
+                <button class="btn btn-info" type="button">Buy Product</button>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 mt-3">
+            <div class="d-grid gap-2">
+                <button class="btn btn-secondary" type="button" (click)="close()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

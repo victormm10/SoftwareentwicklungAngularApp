@@ -10,6 +10,7 @@ import { GridColorDirective } from '../Directives/grid-color.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorMsgDirective } from '../Directives/error-msg.directive';
 import { DeleteComponent } from './Components/Confirm/delete/delete.component';
+import { ViewComponent } from './Components/view/view.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DeleteComponent } from './Components/Confirm/delete/delete.component';
     ImagesPipe,
     GridColorDirective,
     ErrorMsgDirective,
-    DeleteComponent
+    DeleteComponent,
+    ViewComponent
   ],
   imports: [
     CommonModule,
